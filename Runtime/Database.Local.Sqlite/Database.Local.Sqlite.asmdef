@@ -1,0 +1,11 @@
+{
+  "name": "Database.Local.Sqlite",
+  "references": ["BadWriter.Contracts","Database.Abstractions","Database.Application"],
+  "autoReferenced": true,
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "defineConstraints": []
+}

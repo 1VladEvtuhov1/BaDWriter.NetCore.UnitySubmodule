@@ -1,0 +1,11 @@
+{
+  "name": "BadWriter.Contracts",
+  "references": [],
+  "autoReferenced": true,
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "defineConstraints": []
+}

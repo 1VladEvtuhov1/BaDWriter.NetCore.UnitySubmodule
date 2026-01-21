@@ -1,0 +1,11 @@
+{
+  "name": "Database.Abstractions",
+  "references": ["BadWriter.Contracts"],
+  "autoReferenced": true,
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "defineConstraints": []
+}

@@ -1,0 +1,9 @@
+{
+  "name": "com.badwriter.runtime",
+  "displayName": "BadWriter Runtime",
+  "version": "0.1.0",
+  "unity": "2021.3",
+  "description": "Runtime layer: Contracts, Abstractions, Application services, SQLite provider (source + sqlite deps).",
+  "author": { "name": "BadWriter", "email": "", "url": "" },
+  "hideInEditor": false
+}
