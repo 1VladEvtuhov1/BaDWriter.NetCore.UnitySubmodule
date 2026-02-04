@@ -124,6 +124,17 @@ BEGIN
     WHERE NEW.variant_of_id = NEW.id;
 END;
 
+CREATE TABLE IF NOT EXISTS block_templates (
+    id              TEXT PRIMARY KEY,
+    name            TEXT NOT NULL,
+    payload_json    TEXT NOT NULL,
+    version         INTEGER NOT NULL DEFAULT 0,
+    updated_at_utc  INTEGER NOT NULL DEFAULT (strftime('%s','now')),
+    is_deleted      INTEGER NOT NULL DEFAULT 0
+);
+CREATE INDEX IF NOT EXISTS ix_block_templates_updated_id ON block_templates(updated_at_utc, id);
+CREATE INDEX IF NOT EXISTS ix_block_templates_name       ON block_templates(name);
+
 CREATE TRIGGER IF NOT EXISTS trg_card_variant_container_ins
 BEFORE INSERT ON cards
 FOR EACH ROW

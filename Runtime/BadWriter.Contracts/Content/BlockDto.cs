@@ -7,7 +7,7 @@ namespace BadWriter.Contracts.Content
         public string Id { get; init; } = null!;
         public List<ElementDto> Children { get; init; } = new();
         public double? DesignAspectRatio { get; init; } // optional: helps fit whole block
-        public double PaddingPx { get; init; } = 0;     // applied in device space
+        public double PaddingPx { get; init; } // applied in device space
     }
 }
 
