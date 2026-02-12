@@ -23,6 +23,7 @@ namespace Database.Application.Cards
         private readonly ICardTagsRepository _cardTags;
         private readonly ICardCascadeRepository _cascade;
         private readonly ICardArtRepository _art;
+        private readonly ICardLayoutService _cardLayouts;
 
         public CardCommandService(
             IDocumentRepository<CardDto> cards,
@@ -30,7 +31,8 @@ namespace Database.Application.Cards
             ICardQueries queries,
             ICardTagsRepository cardTags,
             ICardCascadeRepository cascade,
-            ICardArtRepository art)
+            ICardArtRepository art,
+            ICardLayoutService cardLayouts)
         {
             _cards = cards ?? throw new ArgumentNullException(nameof(cards));
             _containers = containers ?? throw new ArgumentNullException(nameof(containers));
@@ -38,6 +40,7 @@ namespace Database.Application.Cards
             _cardTags = cardTags ?? throw new ArgumentNullException(nameof(cardTags));
             _cascade = cascade ?? throw new ArgumentNullException(nameof(cascade));
             _art = art ?? throw new ArgumentNullException(nameof(art));
+            _cardLayouts = cardLayouts ?? throw new ArgumentNullException(nameof(cardLayouts));
         }
 
         public async Task<CardDto> CreateAsync(string parentId, string name, string? description, CancellationToken ct = default)
@@ -168,7 +171,11 @@ namespace Database.Application.Cards
         public async Task DeleteAsync(string id, CancellationToken ct = default)
         {
             var current = await _cards.GetAsync(id, ct);
-            await _cards.DeleteAsync(id, expectedVersion: current?.Version, ct);
+            if (current == null)
+                return;
+
+            await _cardLayouts.DeleteLayoutAsync(id, ct);
+            await _cards.DeleteAsync(id, expectedVersion: current.Version, ct);
         }
 
         public Task<int> PurgeAsync(string id, CancellationToken ct = default)
@@ -191,3 +198,4 @@ namespace Database.Application.Cards
         }
     }
 }
+

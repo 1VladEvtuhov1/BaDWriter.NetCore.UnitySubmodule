@@ -243,6 +243,8 @@ WHERE id = @id AND is_deleted = 0;";
                 {
                     Id = id,
                     Children = payload.Children ?? new List<ElementDto>(),
+                    DesignWidthPx = payload.DesignWidthPx,
+                    DesignHeightPx = payload.DesignHeightPx,
                     DesignAspectRatio = payload.DesignAspectRatio,
                     PaddingPx = payload.PaddingPx
                 };

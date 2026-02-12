@@ -185,6 +185,8 @@ namespace Database.Application.BlockTemplates
             {
                 Id = templateId,
                 Children = children,
+                DesignWidthPx = payload.DesignWidthPx,
+                DesignHeightPx = payload.DesignHeightPx,
                 DesignAspectRatio = payload.DesignAspectRatio,
                 PaddingPx = payload.PaddingPx
             };
